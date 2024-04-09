@@ -6,4 +6,6 @@ import com.adt.project.model.Resume;
 
 public interface ResumeRepository extends JpaRepository<Resume, Integer> {
 
+    Object findByUserName(String userName);
+
 }
