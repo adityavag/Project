@@ -32,4 +32,6 @@ public class Resume {
     private List<Header> header;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "resume", cascade = CascadeType.ALL)
     private List<Experience> experience;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "resume", cascade = CascadeType.ALL)
+    private List<Project> project;
 }
