@@ -28,6 +28,6 @@ public class Education {
     private String period;
     private String majors;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "resume_id")
+    @JoinColumn(name = "resume_id",referencedColumnName="id")
     private Resume resume;
 }
