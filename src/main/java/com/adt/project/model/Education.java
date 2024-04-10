@@ -1,5 +1,7 @@
 package com.adt.project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,5 +31,6 @@ public class Education {
     private String majors;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "resume_id",referencedColumnName="id")
+    @JsonIgnore
     private Resume resume;
 }

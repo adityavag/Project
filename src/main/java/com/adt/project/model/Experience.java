@@ -2,6 +2,7 @@ package com.adt.project.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import jakarta.persistence.CascadeType;
@@ -38,5 +39,6 @@ public class Experience {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "resume_id")
+    @JsonIgnore
     private Resume resume;
 }

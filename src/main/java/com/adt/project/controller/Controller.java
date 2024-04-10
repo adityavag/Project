@@ -42,4 +42,14 @@ public class Controller {
             return e.toString();
         }
     }
+
+    @GetMapping("/get/")
+    public ResponseEntity<?> getProfile(@RequestParam(value = "name") String name) {
+        try {
+            Resume profile =  (Resume) resumeRepository.findByUserName(name);
+            return ResponseEntity.ok(profile);
+        } catch (Exception e) {
+            return ResponseEntity.ok("Error");
+        }
+    }
 }

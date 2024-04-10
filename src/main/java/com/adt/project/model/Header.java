@@ -2,6 +2,8 @@ package com.adt.project.model;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -34,5 +36,6 @@ public class Header {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "resume_id")
+    @JsonIgnore
     private Resume resume;
 }
