@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,4 +37,7 @@ public class Resume {
     private List<Experience> experience = new ArrayList<Experience>();
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "resume", cascade = CascadeType.ALL)
     private List<Project> project = new ArrayList<Project>();
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private User user;
 }
