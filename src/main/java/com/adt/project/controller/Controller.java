@@ -26,8 +26,8 @@ public class Controller {
 
     @PostMapping("/edit/")
     public String editProfile(@RequestParam(value = "username") String username, @RequestBody Resume resume) {
-        // Integer userId =
-        // (userRepository.findByUsername(resume.getUserName())).getId();
+        // Integer userId = (userRepository.findByUsername(resume.getUserName())).getId();
+
         System.out.println(username);
         try {
             for (Education education : resume.getEducation()) {
@@ -42,7 +42,7 @@ public class Controller {
             for (Header header : resume.getHeader()) {
                 header.setResume(resume);
             }
-            resume.setUser(userRepository.getById(1));
+            resume.setUser(userRepository.findByUsername(username));
             resumeRepository.save(resume);
             return "Success";
         } catch (Exception e) {
